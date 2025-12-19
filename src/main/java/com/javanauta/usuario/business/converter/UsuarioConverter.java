@@ -38,7 +38,10 @@ public class UsuarioConverter {
                 .build();
     }
 
-    public  List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTO){
+    public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTO){
+        if (telefoneDTO == null) {
+            return List.of(); // lista vazia
+        }
         return telefoneDTO.stream().map(this::paraTelefone).toList();
     }
 
